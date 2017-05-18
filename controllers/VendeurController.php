@@ -27,6 +27,5 @@ if (isset($_POST['page'])) {
             <td> <a href="#"><i class="fa fa-trash"></i> </a>| <a href="#"> <i class="fa fa-edit"></i></a> </td>
             </tr>';
     }
-
     print $text_table_header . $text . $text_table_footer;
 }
