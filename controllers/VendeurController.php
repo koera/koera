@@ -18,7 +18,7 @@ if (isset($_POST['page'])) {
     $list = Vendeur::listVendeur($pdo);
     $text_table_header = '<table id="example1" class="table table-bordered table-striped"><thead><tr><th>Numéro</th><th>Nom Vendeur</th><th>Salaire</th></tr></thead><tbody>';
     $text_table_footer = '</tbody></table>';
-    $text ='';
+    $text = '';
     foreach ($list as $l) {
         $text.='<tr>
             <td>' . $l->getVd_id() . ' </td>

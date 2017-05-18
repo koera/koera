@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 17, 2017 at 08:37 PM
+-- Generation Time: May 18, 2017 at 06:32 PM
 -- Server version: 5.5.40
 -- PHP Version: 5.4.36-0+deb7u1
 
@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `RECETTES_JOUR` (
 
 INSERT INTO `RECETTES_JOUR` (`rc_j_date`, `rc_j_montant`) VALUES
 ('2017-05-11', 2900),
+('2017-05-12', 8000),
 ('2017-05-16', 50000),
 ('2017-05-26', 0),
 ('2017-06-05', 900),
@@ -92,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `RECETTES_MOIS` (
 --
 
 INSERT INTO `RECETTES_MOIS` (`rc_m_year`, `rc_m_mounth`, `rc_m_montant`) VALUES
-(2017, 5, 53900),
+(2017, 5, 61900),
 (2017, 6, 900),
 (2017, 7, 500),
 (2017, 9, 900),
@@ -117,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `RECETTES_VENDEUR` (
 
 INSERT INTO `RECETTES_VENDEUR` (`rc_date`, `rc_montant`, `vd_id`) VALUES
 ('2017-05-11', 2500, 1),
+('2017-05-12', 8000, 1),
 ('2017-06-05', 900, 1),
 ('2017-09-20', 900, 1),
 ('2017-05-11', 400, 2),
@@ -282,13 +284,26 @@ CREATE TABLE IF NOT EXISTS `RECETTES_VENDEUR_MOIS` (
 --
 
 INSERT INTO `RECETTES_VENDEUR_MOIS` (`rc_vm_year`, `rc_vm_mounth`, `rc_vm_montant`, `vd_id`) VALUES
-(2017, 5, 3900, 1),
+(2017, 5, 11900, 1),
 (2017, 5, 3900, 2),
 (2017, 5, 50000, 9),
 (2017, 6, 900, 1),
 (2017, 7, 500, 2),
 (2017, 9, 900, 1),
 (2018, 5, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `USERS`
+--
+
+CREATE TABLE IF NOT EXISTS `USERS` (
+  `login` varchar(20) NOT NULL,
+  `password` varchar(150) DEFAULT NULL,
+  `photos` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`login`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -300,6 +315,7 @@ CREATE TABLE IF NOT EXISTS `VENDEUR` (
   `vd_id` int(11) NOT NULL AUTO_INCREMENT,
   `vd_name` varchar(50) DEFAULT NULL,
   `salaire` int(11) DEFAULT NULL,
+  `photos` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`vd_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
@@ -307,18 +323,18 @@ CREATE TABLE IF NOT EXISTS `VENDEUR` (
 -- Dumping data for table `VENDEUR`
 --
 
-INSERT INTO `VENDEUR` (`vd_id`, `vd_name`, `salaire`) VALUES
-(1, 'Koera', 3000),
-(2, 'Aymard', 3000),
-(3, 'Laza', 3000),
-(4, 'Manoa', 5000),
-(5, 'Ratou', 5500),
-(6, 'popo', 3000),
-(7, 'papa', 900),
-(8, 'Zaza', 900),
-(9, 'Thomas Mahatod', 89990),
-(10, 'Nanta', 9000),
-(11, 'Aymard', 0);
+INSERT INTO `VENDEUR` (`vd_id`, `vd_name`, `salaire`, `photos`) VALUES
+(1, 'Koera', 3000, ''),
+(2, 'Aymard', 3000, ''),
+(3, 'Laza', 3000, ''),
+(4, 'Manoa', 5000, ''),
+(5, 'Ratou', 5500, ''),
+(6, 'popo', 3000, ''),
+(7, 'papa', 900, ''),
+(8, 'Zaza', 900, ''),
+(9, 'Thomas Mahatod', 89990, ''),
+(10, 'Nanta', 9000, ''),
+(11, 'Aymard', 0, '');
 
 --
 -- Triggers `VENDEUR`
