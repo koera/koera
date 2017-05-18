@@ -45,14 +45,6 @@
                     </div>
                 </form>
 
-                <div class="social-auth-links text-center">
-                    <p>- OU -</p>
-                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Création de compte utilisateur</a>   
-                </div><!-- /.social-auth-links -->
-
-                <a href="#">I forgot my password</a><br>
-                <a href="register.html" class="text-center">Register a new membership</a>
-
             </div><!-- /.login-box-body -->
         </div><!-- /.login-box -->
 

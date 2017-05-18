@@ -16,7 +16,7 @@ if (isset($_POST['vd_name']) and isset($_POST['salaire'])) {
 }
 if (isset($_POST['page'])) {
     $list = Vendeur::listVendeur($pdo);
-    $text_table_header = '<table id="example1" class="table table-bordered table-striped"><thead><tr><th>Numéro</th><th>Nom Vendeur</th><th>Salaire</th></tr></thead><tbody>';
+    $text_table_header = '<table id="example1" class="table table-bordered table-striped"><thead><tr><th>Numéro</th><th>Nom Vendeur</th><th>Salaire</th><th></th></tr></thead><tbody>';
     $text_table_footer = '</tbody></table>';
     $text = '';
     foreach ($list as $l) {
@@ -24,6 +24,7 @@ if (isset($_POST['page'])) {
             <td>' . $l->getVd_id() . ' </td>
             <td>' . $l->getVd_name() . ' </td>
             <td>' . $l->getSalaire() . ' </td>
+            <td> <a href="#"><i class="fa fa-trash"></i> </a>| <a href="#"> <i class="fa fa-edit"></i></a> </td>
             </tr>';
     }
     print $text_table_header . $text . $text_table_footer;
