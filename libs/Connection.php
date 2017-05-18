@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=db_trigger', 'root', 'root', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+    $pdo = new PDO('mysql:host=localhost;dbname=db_trigger', 'koera', 'koera-sam', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 } catch (PDOException $ex) {
     print $ex->getMessage();
 }
