@@ -20,6 +20,7 @@ if (isset($_POST['page'])) {
         $list = RecetteVendeur::listRecetteVendeur($pdo);
         $text_table_header = '<table id="example1" class="table table-bordered table-striped"><thead><tr><th>Date</th><th>Nom Vendeur</th><th>Recette</th></tr></thead><tbody>';
         $text_table_footer = '</tbody></table>';
+        $text ='';
         foreach ($list as $l) {
             $text.='<tr>
             <td>' . $l->getRc_date() . ' </td>
@@ -31,6 +32,7 @@ if (isset($_POST['page'])) {
     } elseif ($_POST['page'] == 'chargerVendeur') {
         $text_select_begin = '<select class="form-control select2" style="width: 100%;" id="select_vendeur">';
         $list_vendeur = Vendeur::listVendeur($pdo);
+        $text_select_option = '';
         foreach ($list_vendeur as $vendeur)
             $text_select_option .= '<option value="' . $vendeur->getVd_id() . '"> ' . $vendeur->getVd_name() . '</option>';
         $text_select_end = '</select>';
