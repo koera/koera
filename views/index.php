@@ -119,7 +119,7 @@ if ($_SESSION["username"] != null) {
                                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                                             </div>
                                             <div class="pull-right">
-                                                <a href="#" class="btn btn-default btn-flat">Déconnexion</a>
+                                                <button onclick="disconnect()" class="btn btn-default btn-flat">Déconnexion</button>
                                             </div>
                                         </li>
                                     </ul>

@@ -21,6 +21,10 @@ if (isset($_POST['action'])) {
             }
         }
     }
+    elseif ($_POST['action'] == 'disconnect') {
+        session_destroy();
+        unset($_SESSION);
+        print 'session_end';
+    }
 }
-
 

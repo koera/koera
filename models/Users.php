@@ -53,7 +53,7 @@ class Users {
             $statement->execute(array($login, $password));
             $users = null;
             while ($table = $statement->fetch(PDO::FETCH_NUM)) {
-                $users = new Users($table[0], $table[1],$table[3]);
+                $users = new Users($table[0], $table[1],$table[2]);
             }
             $statement->closeCursor();
             return $users;

@@ -54,3 +54,20 @@ function getListVendeur() {
         }
     });
 }
+
+function disconnect() {
+    console.log('disconnect');
+     $.ajax({
+        url: "../controllers/UsersController.php",
+        data: "action=disconnect",
+        type: "POST",
+        success: function (success) {
+           if(success == 'session_end'){
+            console.log(success);
+            document.location = 'http://localhost/trigger/index.php';
+           }
+        },error: function (e){
+            console.log(e);
+        }
+    });
+}
