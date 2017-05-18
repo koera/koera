@@ -119,7 +119,7 @@ if ($_SESSION["username"] != null) {
                                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                                             </div>
                                             <div class="pull-right">
-                                                <a href="#" class="btn btn-default btn-flat">Déconnexion</a>
+                                                <a href="http://localhost/trigger/controllers/DestroySession.php" class="btn btn-default btn-flat">Déconnexion</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -172,7 +172,7 @@ if ($_SESSION["username"] != null) {
                             RECETTE VENDEUR
                         </h1>
                         <ol class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-dashboard"></i> Acceuil</a></li>
+                            <li><a href="#"><i class="fa fa-home"></i> Acceuil</a></li>
                             <li class="active">Recette Vendeur</li>
                         </ol>
                     </section>
@@ -183,7 +183,7 @@ if ($_SESSION["username"] != null) {
                             <div class="col-md-4">
                                 <div class="box box-default">
                                     <div class="box-header with-border">
-                                        <i class="fa fa-warning"></i>
+                                        <i class="fa fa-plus"></i>
                                         <h3 class="box-title">Nouveau</h3>
                                     </div><!-- /.box-header -->
                                     <div class="box-body">
@@ -225,7 +225,7 @@ if ($_SESSION["username"] != null) {
                             <div class="col-md-8">
                                 <div class="box box-default">
                                     <div class="box-header with-border">
-                                        <i class="fa fa-bullhorn"></i>
+                                        <i class="fa fa-list-alt"></i>
                                         <h3 class="box-title">Recette vendeur</h3>
                                     </div><!-- /.box-header -->
                                     <div class="box-body">

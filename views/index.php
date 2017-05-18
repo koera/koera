@@ -119,7 +119,7 @@ if ($_SESSION["username"] != null) {
                                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                                             </div>
                                             <div class="pull-right">
-                                                <a href="#" class="btn btn-default btn-flat">Déconnexion</a>
+                                                <a href="http://localhost/trigger/controllers/DestroySession.php" class="btn btn-default btn-flat">Déconnexion</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -273,7 +273,6 @@ if ($_SESSION["username"] != null) {
             <script src="style/dist/js/demo.js"></script>
             <!-- page script -->
             <script src="js/app_v.js"></script>
-
         </body>
     </html>
     <?php

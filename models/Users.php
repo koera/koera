@@ -61,4 +61,5 @@ class Users {
             print $ex->getMessage();
         }
     }
+
 }
