@@ -38,9 +38,16 @@
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
+                        <div class="col-xs-8">
+                            <div class="checkbox icheck">
+                                <label>
+                                    <input type="checkbox"> enregistrer mot de passe
+                                </label>
+                            </div>
+                        </div><!-- /.col -->
                         <div id="text-notif-login"></div>
                         <div class="col-xs-4">
-                            <button type="button" onclick="checkUser()" id="form-users-submit" class="btn btn-primary btn-block btn-flat">Log in</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Connexion</button>
                         </div><!-- /.col -->
                     </div>
                 </form>
@@ -63,5 +70,5 @@
         <!-- iCheck -->
         <script src="views/style/plugins/iCheck/icheck.min.js"></script>
         <script src="views/js/app_connect.js"></script>
-    </body>
-</html>
+        </body>
+    </html>
