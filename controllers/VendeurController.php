@@ -26,6 +26,5 @@ if (isset($_POST['page'])) {
             <td>' . $l->getSalaire() . ' </td>
             </tr>';
     }
-
     print $text_table_header . $text . $text_table_footer;
 }
