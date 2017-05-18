@@ -10,9 +10,13 @@ function checkUser() {
     $.ajax({
         url: "http://localhost/trigger/controllers/UsersController.php",
         data: "action=connect&login=" + login + "&password=" + password,
-        type: 'GET',
+        type: 'POST',
         success: function (data) {
-            $('#text-notif-login').html('<center><label style="color: red;">'+data+'</label></center>');
+            if (data == 'session_begin') {
+                document.location = 'http://localhost/trigger/views/index.php';
+            } else {
+                $('#text-notif-login').html('<center><label style="color: red;">' + data + '</label></center>');
+            }
         }, error: function (xhr, status, error) {
             console.log(xhr);
         }
