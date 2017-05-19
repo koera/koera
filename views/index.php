@@ -11,7 +11,7 @@ if ($_SESSION["username"] != null) {
         <head>
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title>AdminLTE 2 | Starter</title>
+            <title>TP TRIGGER</title>
             <!-- Tell the browser to be responsive to screen width -->
             <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
             <!-- Bootstrap 3.3.5 -->
@@ -154,14 +154,16 @@ if ($_SESSION["username"] != null) {
                         <ul class="sidebar-menu">
                             <li class="header">TRIGGER</li>
                             <!-- Optionally, you can add icons to the links -->
-                            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Vendeur</span></a></li>
-                            <li><a href="recette_vendeur.php"><i class="fa fa-link"></i> <span>Recette vendeur</span></a></li>
+                            <li class="active"><a href="#"><i class="fa fa-users"></i> <span>Vendeur</span></a></li>
+                            <li><a href="recette_vendeur.php"><i class="fa fa-money"></i> <span>Recette vendeur</span></a></li>
                             <li class="treeview">
-                                <a href="#"><i class="fa fa-link"></i> <span>Audit vendeur</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <!--               <ul class="treeview-menu">
-                                                <li><a href="#">Link in level 2</a></li>
-                                                <li><a href="#">Link in level 2</a></li>
-                                              </ul> -->
+                                <a href="#"><i class="fa fa-cogs"></i> <span>Divers</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#">Audit</a></li>
+                                    <li><a href="#">Recette par Jours</a></li>
+                                    <li><a href="#">Recette par mois</a></li>
+                                    <li><a href="#">Recette par mois vendeurs</a></li>
+                                </ul> 
                             </li>
                         </ul><!-- /.sidebar-menu -->
                     </section>
@@ -191,12 +193,13 @@ if ($_SESSION["username"] != null) {
                                 <div class="box box-default">
                                     <div class="box-header with-border">
                                         <i class="fa fa-plus"></i>
-                                        <h3 class="box-title">Nouveau</h3>
+                                        <h3 class="box-title" id="box-title-form">Nouveau</h3>
                                     </div><!-- /.box-header -->
                                     <div class="box-body">
 
                                         <form role="form" method="POST"  id="form_vendeur" action="#" >
                                             <div class="box-body">
+                                                <input type="hidden" id="vd_id"/>
                                                 <div class="form-group">
                                                     <label>Nom vendeur (*) :</label>
                                                     <input type="text" class="form-control" id="vd_name" name="vd_name"  placeholder="Nom vendeur" required="required">
@@ -211,8 +214,10 @@ if ($_SESSION["username"] != null) {
                                             </div><!-- /.box-body -->
 
                                             <div class="box-footer">
-                                                <label class="primary" ><i>(*) : champs obligatoires</i></label>
-                                                <button type="button" onclick="sendData()" class="btn btn-primary">Enregistrer</button>
+                                                <span id="id_show_btn_cancel">
+                                                    <label class="primary" id="label_champs_obligatoires"><i>(*) : champs obligatoires</i></label>
+                                                </span>
+                                                <button type="button" id="btn-send-form-vendeur" value="enregistrer" onclick="sendData()" class="btn btn-primary">Enregistrer</button>
                                             </div>
                                         </form>
 
