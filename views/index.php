@@ -217,7 +217,9 @@ if ($_SESSION["username"] != null) {
                                                 <span id="id_show_btn_cancel">
                                                     <label class="primary" id="label_champs_obligatoires"><i>(*) : champs obligatoires</i></label>
                                                 </span>
-                                                <button type="button" id="btn-send-form-vendeur" value="enregistrer" onclick="sendData()" class="btn btn-primary">Enregistrer</button>
+                                                <span id="id_show_btn_send">
+                                                    <button type="button" id="btn-send-form-vendeur" value="enregistrer" onclick="sendData()" class="btn btn-primary">Enregistrer</button>
+                                                </span>
                                             </div>
                                         </form>
 

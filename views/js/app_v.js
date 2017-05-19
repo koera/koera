@@ -51,8 +51,6 @@ function sendData() {
                 type: "POST",
                 success: function (sucess) {
                     $('#notif').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + sucess + '</div>');
-                    $("#vd_name").val('');
-                    $("#salaire").val('');
                     getListVendeur();
                 }
             });
@@ -97,8 +95,7 @@ function annulerOperation() {
     $('#vd_name').val('');
     $('#salaire').val('');
     $('#box-title-form').html('Nouveau');
-    $('#btn-send-form-vendeur').val('enregister');
-    $('#btn-send-form-vendeur').html('Enregistrer');
+    $('#id_show_btn_send').html('<button type="button" id="btn-send-form-vendeur" value="enregistrer" onclick="sendData()" class="btn btn-primary">Enregistrer</button>');
     $('#id_show_btn_cancel').html('<label class="primary" id="label_champs_obligatoires"><i>(*) : champs obligatoires</i></label>');
     $('#vd_name').css('border-color', 'gray');
     $('#salaire').css('border-color', 'gray');
