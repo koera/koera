@@ -40,6 +40,9 @@ if ($_SESSION["username"] != null) {
                 #example1_length{
                     display: none;
                 }
+                #example2_length{
+                    display: none;
+                }
             </style>
         </head>
         <!--
@@ -275,7 +278,7 @@ if ($_SESSION["username"] != null) {
                                         <option value="12">Décembre</option>
                                         </select>
                                         <br>
-                                        <button >Afficher</button>
+                                        <button type="button" class="btn btn-primary">Afficher</button>
                                     </form>   
                                     </div>
                                 </div>
@@ -286,7 +289,7 @@ if ($_SESSION["username"] != null) {
                                      <h3 class="box-title" id="box-title-form">Total du recette annuel : 250000 Ar</h3>
                                     </div><!-- /.box-header -->
                                     <div class="box-body">
-                                        <table id="example1" class="table table-bordered table-striped">
+                                        <table id="example2" class="table table-bordered table-striped">
                                         <thead>
                                           <tr>
                                             <th>Date</th>
@@ -378,6 +381,12 @@ if ($_SESSION["username"] != null) {
             <script src="style/dist/js/demo.js"></script>
             <!-- page script -->
             <script src="js/app_v.js"></script>
+             <script>
+      $(function () {
+        $("#example2").DataTable();
+        
+      });
+    </script>
         </body>
     </html>
     <?php
