@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/trigger/views/style/plugins/ckeditor/skins/moono/editor_ie7.css</file>
-            <file>file:/var/www/trigger/views/index.html</file>
-            <file>file:/var/www/trigger/views/recette_vendeur.html</file>
-            <file>file:/var/www/trigger/views/js/app_rv.js</file>
+            <file>file:/var/www/trigger/controllers/VendeurController.php</file>
+            <file>file:/var/www/trigger/models/RecetteVendeurMois.php</file>
+            <file>file:/var/www/trigger/views/test.php</file>
+            <file>file:/var/www/trigger/views/js/app_connect.js</file>
+            <file>file:/var/www/trigger/views/index.php</file>
             <file>file:/var/www/trigger/views/js/app_v.js</file>
+            <file>file:/var/www/trigger/models/Vendeur.php</file>
         </group>
     </open-files>
 </project-private>

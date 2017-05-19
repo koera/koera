@@ -21,6 +21,8 @@ if (isset($_POST['action'])) {
             $nb = Vendeur::editVendeur($pdo, $_POST['vd_id'], $_POST['vd_name'], $_POST['salaire']);
             if ($nb > 0) {
                 print 'Modification reussie';
+            } else {
+                print 'Aucune modification';
             }
         }
     }
