@@ -80,6 +80,9 @@ function getListVendeur() {
     });
 }
 function editVendeur(vd_id, vd_name, salaire) {
+    $('#vd_name').css('border-color', 'gray');
+    $('#salaire').css('border-color', 'gray');
+    $('#notif').html('');
     $('#vd_id').val(vd_id);
     $('#vd_name').val(vd_name);
     $('#salaire').val(salaire);
@@ -100,4 +103,22 @@ function annulerOperation() {
     $('#vd_name').css('border-color', 'gray');
     $('#salaire').css('border-color', 'gray');
     $('#notif').html('');
+}
+
+function removeVendeur(vd_id) {
+    if (confirm('Voulez vous vraiment supprimer ce vendeur ? ')) {
+        $.ajax({
+            url: "../controllers/VendeurController.php",
+            data: "action=supprimer&vd_id=" + vd_id,
+            type: "POST",
+            success: function (reponse) {
+                if (reponse == 'Suppression reussie') {
+                    $('#info-delete').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + reponse + '</div>');
+                } else {
+                    $('#info-delete').html('<div class="alert alert-error alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + reponse + '</div>');
+                }
+                getListVendeur();
+            }
+        });
+    }
 }

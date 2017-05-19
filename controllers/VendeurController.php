@@ -25,6 +25,15 @@ if (isset($_POST['action'])) {
                 print 'Aucune modification';
             }
         }
+    } elseif ($_POST['action'] == 'supprimer') {
+        if (isset($_POST['vd_id'])) {
+            $nb = Vendeur::removeVendeur($pdo, $_POST['vd_id']);
+            if ($nb > 0) {
+                print 'Suppression reussie';
+            } else {
+                print 'Suppression echoue';
+            }
+        }
     }
 } else {
     if (isset($_POST['page'])) {
@@ -37,7 +46,7 @@ if (isset($_POST['action'])) {
             <td>' . $l->getVd_id() . ' </td>
             <td>' . $l->getVd_name() . ' </td>
             <td>' . $l->getSalaire() . ' </td>
-            <td> <a href="#"><i class="fa fa-trash"></i> </a> | <a href="#" onclick="editVendeur(\'' . $l->getVd_id() . '\',\'' . $l->getVd_name() . '\',\'' . $l->getSalaire() . '\')"> <i class="fa fa-edit"></i></a> </td>
+            <td> <a href="#" onclick="removeVendeur(\'' . $l->getVd_id() . '\')"><i class="fa fa-trash"></i> </a> | <a href="#" onclick="editVendeur(\'' . $l->getVd_id() . '\',\'' . $l->getVd_name() . '\',\'' . $l->getSalaire() . '\')"> <i class="fa fa-edit"></i></a> </td>
             </tr>';
         }
         print $text_table_header . $text . $text_table_footer;

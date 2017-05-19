@@ -183,7 +183,7 @@ if ($_SESSION["username"] != null) {
                             <li class="active">Vendeur</li>
                         </ol>
                     </section>
-
+                    <div style="" class="margin" id="info-delete"></div>
                     <!-- Main content -->
                     <section class="content">
 

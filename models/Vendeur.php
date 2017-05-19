@@ -114,4 +114,16 @@ class Vendeur {
         }
     }
 
+    static function removeVendeur(PDO $pdo, $vd_id) {
+        try {
+            $statement = $pdo->prepare('DELETE FROM VENDEUR WHERE vd_id = ?');
+            $statement->execute(array($vd_id));
+            $statement->closeCursor();
+            $nb = $statement->rowCount();
+            return $nb;
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+        }
+    }
+
 }
