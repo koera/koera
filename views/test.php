@@ -9,5 +9,4 @@
 include_once '../libs/Connection.php';
 include_once '../models/Vendeur.php';
 
-$v = Vendeur::getVendeurById($pdo, 1);
-print $v->getSalaire();
+Vendeur::editVendeur($pdo, 13, 'Treize', 1000);

@@ -74,7 +74,7 @@ class Vendeur {
 
     static function editVendeur(PDO $pdo, $vd_id, $vd_name, $salaire, $photos = null) {
         try {
-            $prepare = $pdo->prepare('UPDATE VENDEUR SET vd_name = ? AND salaire = ? AND photos = ? WHERE vd_id = ?');
+            $prepare = $pdo->prepare('UPDATE VENDEUR SET vd_name = ?,salaire = ?,photos = ? WHERE vd_id = ?');
             $prepare->execute(array($vd_name, $salaire, $photos, $vd_id));
             $nb = $prepare->rowCount();
             $prepare->closeCursor();

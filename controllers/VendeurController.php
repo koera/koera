@@ -16,9 +16,9 @@ if (isset($_POST['action'])) {
                 print 'Insertion reussie';
             }
         }
-    } elseif ($_GET['action'] == 'modifier') {
-        if (isset($_GET['vd_name']) and isset($_GET['salaire']) and isset($_GET['vd_id'])) {
-            $nb = Vendeur::editVendeur($pdo, $_GET['vd_id'], $_GET['vd_name'], $_GET['salaire']);
+    } elseif ($_POST['action'] == 'modifier') {
+        if (isset($_POST['vd_name']) and isset($_POST['salaire']) and isset($_POST['vd_id'])) {
+            $nb = Vendeur::editVendeur($pdo, $_POST['vd_id'], $_POST['vd_name'], $_POST['salaire']);
             if ($nb > 0) {
                 print 'Modification reussie';
             }
