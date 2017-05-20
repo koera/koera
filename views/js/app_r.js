@@ -13,7 +13,7 @@ function loadListRecetteJours() {
     $.ajax({
         url: "../controllers/RecetteController.php",
         data: "action=list_recette_jour",
-        type: "GET",
+        type: "POST",
         success: function (data) {
             $('#table_recette_jour').html(data);
             $('#example1').DataTable();
@@ -24,7 +24,7 @@ function loadYear() {
     $.ajax({
         url: "../controllers/RecetteController.php",
         data: "action=charger_annee",
-        type: "GET",
+        type: "POST",
         success: function (data) {
             $('#select_year').html(data);
         }
@@ -36,7 +36,7 @@ function chargerList(year, month) {
     $.ajax({
         url: "../controllers/RecetteController.php",
         data: "action=list_recette_mois&year=" + year + "&month=" + month,
-        type: "GET",
+        type: "POST",
         success: function (data) {
             $('#table_recette_mois_here').html(data);
             $('#example2').DataTable();
