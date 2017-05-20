@@ -201,139 +201,94 @@ if ($_SESSION["username"] != null) {
                                     <div class="box-body">
 
                                         <div class="box-group" id="accordion">
-                    <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
-                    <div class="panel box">
-                      <div class="box-header with-border">
-                        <h4 class="box-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                            Recette par jour
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr>
-                        <th>Date</th>
-                        <th>Montant</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2017/05/18</td>
-                        <td>2000</td>
-                        <td><a href="#"><i class="fa fa-trash"></i> </a> | <a href="#"> <i class="fa fa-edit"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>2017/05/19</td>
-                        <td>2000</td>
-                        <td><a href="#"><i class="fa fa-trash"></i> </a> | <a href="#"> <i class="fa fa-edit"></i></a></td>
-                      </tr>
-                
-                    </tbody>
-                    
-                  </table>
-                         </div>
-                      </div>
-                    </div>
-                    <div class="panel box">
-                      <div class="box-header with-border">
-                        <h4 class="box-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                            Recette par mois
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="box-body">
-                            <div class="row">
-                            <div class="col-md-4">
-                                <div class="box box-default">
-                                    <div class="box-header with-border">
-                                     <h3 class="box-title" id="box-title-form">Choisir année</h3>
-                                    </div><!-- /.box-header -->
-                                    <div class="box-body">
-                                    <form action="" method="">
-                                        <select class="form-control select2" style="width: 100%;" id="annee">
-                                        <option value="">année 1</option>
-                                        <option value="">année 2</option>
-                                        <option value="">année 3</option>
-                                        <option value="">ze année misy</option>
-                                        </select>
+                                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                                            <div class="panel box">
+                                                <div class="box-header with-border">
+                                                    <h4 class="box-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                            Recette par jour
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseOne" class="panel-collapse collapse in">
+                                                    <div class="box-body">
+                                                        <div id="table_recette_jour"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel box">
+                                                <div class="box-header with-border">
+                                                    <h4 class="box-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                                            Recette par mois
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseTwo" class="panel-collapse collapse">
+                                                    <div class="box-body">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="box box-default">
+                                                                    <div class="box-header with-border">
+                                                                        <h3 class="box-title" id="box-title-form">Choisir année</h3>
+                                                                    </div><!-- /.box-header -->
+                                                                    <div class="box-body">
+                                                                        <form action="" method="">
 
-                                        <select class="form-control select2" style="width: 100%;" id="mois">
-                                        <option value="1">Janvier</option>
-                                        <option value="2">Février</option>
-                                        <option value="3">Mars</option>
-                                        <option value="4">Avril</option>
-                                        <option value="5">Mai</option>
-                                        <option value="6">Juin</option>
-                                        <option value="7">Juillet</option>
-                                        <option value="8">Août</option>
-                                        <option value="9">Septembre</option>
-                                        <option value="10">Octobre</option>
-                                        <option value="11">Novembre</option>
-                                        <option value="12">Décembre</option>
-                                        </select>
-                                        <br>
-                                        <button type="button" class="btn btn-primary">Afficher</button>
-                                    </form>   
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="box box-default">
-                                    <div class="box-header with-border">
-                                     <h3 class="box-title" id="box-title-form">Total du recette annuel : 250000 Ar</h3>
-                                    </div><!-- /.box-header -->
-                                    <div class="box-body">
-                                        <table id="example2" class="table table-bordered table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th>Date</th>
-                                            <th>Montant</th>
-                                            <th>Action</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>2017/05/18</td>
-                                            <td>2000</td>
-                                            <td><a href="#"><i class="fa fa-trash"></i> </a> | <a href="#"> <i class="fa fa-edit"></i></a></td>
-                                          </tr>
-                                          <tr>
-                                            <td>2017/05/19</td>
-                                            <td>2000</td>
-                                            <td><a href="#"><i class="fa fa-trash"></i> </a> | <a href="#"> <i class="fa fa-edit"></i></a></td>
-                                          </tr>
-                                    
-                                        </tbody>
-                                        
-                                      </table>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel box">
-                      <div class="box-header with-border">
-                        <h4 class="box-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                            Recette par mois par vendeur
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="box-body">
-                            Contenu recette par mois par vendeur
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                                                                            <select class="form-control select2" style="width: 100%;" id="select_year">
+                                                                                <!--<span id="select_year_here" class=""></span>-->
+                                                                            </select>
+                                                                            <div id="select_month">
+                                                                                <select class="form-control select2" style="width: 100%;" id="select_mois">
+                                                                                    <option value="1">Janvier</option>
+                                                                                    <option value="2">Fevrier</option>
+                                                                                    <option value="3">Mars</option>
+                                                                                    <option value="4">Avril</option>
+                                                                                    <option value="5">Mai</option>
+                                                                                    <option value="6">Juin</option>
+                                                                                    <option value="7">Juillet</option>
+                                                                                    <option value="8">Aout</option>
+                                                                                    <option value="9">Septembre</option>
+                                                                                    <option value="10">Octobre</option>
+                                                                                    <option value="11">Novembre</option>
+                                                                                    <option value="12">Decembre</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <br>
+                                                                            <button type="button" onclick="chargerList($('#select_year').val(), $('#select_mois').val())" class="btn btn-primary">Afficher</button>
+                                                                        </form>   
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="box box-default">
+                                                                    <div class="box-header with-border">
+                                                                        <h3 class="box-title" id="box-title-form">Recette mensuel</h3>
+                                                                    </div><!-- /.box-header -->
+                                                                    <div class="box-body">
+                                                                        <div id="table_recette_mois_here"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel box">
+                                                <div class="box-header with-border">
+                                                    <h4 class="box-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                                            Recette par mois par vendeur
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse">
+                                                    <div class="box-body">
+                                                        Contenu recette par mois par vendeur
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div><!-- /.box-body -->
                                 </div><!-- /.box -->
@@ -380,13 +335,7 @@ if ($_SESSION["username"] != null) {
             <!-- AdminLTE for demo purposes -->
             <script src="style/dist/js/demo.js"></script>
             <!-- page script -->
-            <script src="js/app_v.js"></script>
-             <script>
-      $(function () {
-        $("#example2").DataTable();
-        
-      });
-    </script>
+            <script src="js/app_r.js"></script>
         </body>
     </html>
     <?php
