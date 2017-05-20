@@ -88,4 +88,16 @@ class RecetteVendeur {
         }
     }
 
+    static function editRecette(PDO $pdo, $date, $montant, $vd_id) {
+        try {
+            $st = $pdo->prepare('UPDATE RECETTES_VENDEUR SET rc_montant = ? WHERE rc_date = ? AND vd_id = ?');
+            $st->execute(array($montant, $date, $vd_id));
+            $nb = $st->rowCount();
+            $st->closeCursor();
+            return $nb;
+        } catch (Exception $ex) {
+            print $ex->getMessage();
+        }
+    }
+
 }

@@ -240,11 +240,6 @@ if ($_SESSION["username"] != null) {
             <script src="style/dist/js/demo.js"></script>
             <!-- page script -->
             <script src="js/app_audit.js"></script>
-            <script>
-            $(function(){
-               $('#example1').Datatable();
-            });
-            </script>
         </body>
     </html>
     <?php
