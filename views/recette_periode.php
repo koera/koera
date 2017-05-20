@@ -43,6 +43,9 @@ if ($_SESSION["username"] != null) {
                 #example2_length{
                     display: none;
                 }
+                #example3_length{
+                    display: none;
+                }
             </style>
         </head>
         <!--
@@ -159,15 +162,13 @@ if ($_SESSION["username"] != null) {
                             <!-- Optionally, you can add icons to the links -->
                             <li><a href="index.php"><i class="fa fa-users"></i> <span>Vendeur</span></a></li>
                             <li><a href="recette_vendeur.php"><i class="fa fa-money"></i> <span>Recette vendeur</span></a></li>
-                            <li class="active">
-                                <a href="#"><i class="fa fa-cogs"></i> <span>Divers</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                <!-- <ul class="treeview-menu">
-                                    <li><a href="#">Audit</a></li>
-                                    <li><a href="#">Recette par Jours</a></li>
-                                    <li><a href="#">Recette par mois</a></li>
-                                    <li><a href="#">Recette par mois vendeurs</a></li>
-                                </ul>  -->
+                            <li>
+                                <a href="audit_vendeur.php"><i class="fa fa-cog"></i> <span>Audit Vendeur</span></a>
                             </li>
+                            <li class="active">
+                                <a href="recette_periode.php"><i class="fa fa-cogs"></i> <span>Divers</span></a>
+                            </li>
+                           
                         </ul><!-- /.sidebar-menu -->
                     </section>
                     <!-- /.sidebar -->
@@ -284,7 +285,56 @@ if ($_SESSION["username"] != null) {
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse collapse">
                                                     <div class="box-body">
-                                                        Contenu recette par mois par vendeur
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="box box-default">
+                                                                    <div class="box-header with-border">
+                                                                        <h3 class="box-title" id="box-title-form">Choisir année</h3>
+                                                                    </div><!-- /.box-header -->
+                                                                    <div class="box-body">
+                                                                        <form action="" method="">
+
+                                                                            <select class="form-control select2" style="width: 100%;" id="select_year_vm">
+                                                                                <!--<span id="select_year_here" class=""></span>-->
+                                                                            </select>
+                                                                            Mois
+                                                                            <div id="select_month">
+                                                                                <select class="form-control select2" style="width: 100%;" id="select_mois_vm">
+                                                                                    <option value="1">Janvier</option>
+                                                                                    <option value="2">Fevrier</option>
+                                                                                    <option value="3">Mars</option>
+                                                                                    <option value="4">Avril</option>
+                                                                                    <option value="5">Mai</option>
+                                                                                    <option value="6">Juin</option>
+                                                                                    <option value="7">Juillet</option>
+                                                                                    <option value="8">Aout</option>
+                                                                                    <option value="9">Septembre</option>
+                                                                                    <option value="10">Octobre</option>
+                                                                                    <option value="11">Novembre</option>
+                                                                                    <option value="12">Decembre</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            Vendeur
+                                                                            <select class="form-control select2" style="width: 100%;" id="select_vendeur">
+                                                                                <!--<span id="select_year_here" class=""></span>-->
+                                                                            </select>
+                                                                            <br>
+                                                                            <button type="button" onclick="chargerListRecetteVendeur($('#select_year_vm').val(),$('#select_mois_vm').val(),$('#select_vendeur').val() )" class="btn btn-primary">Afficher</button>
+                                                                        </form>   
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="box box-default">
+                                                                    <div class="box-header with-border">
+                                                                        <h3 class="box-title" id="box-title-form">Recette mensuel </h3>
+                                                                    </div><!-- /.box-header -->
+                                                                    <div class="box-body">
+                                                                        <div id="table_recette_mois_vendeur_here"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

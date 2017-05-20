@@ -37,5 +37,5 @@ if (isset($_POST['page'])) {
             $text_select_option .= '<option value="' . $vendeur->getVd_id() . '"> ' . $vendeur->getVd_name() . '</option>';
         $text_select_end = '</select>';
         print $text_select_begin . $text_select_option . $text_select_end;
-    }
+    } 
 }

@@ -154,11 +154,15 @@ if ($_SESSION["username"] != null) {
                         <ul class="sidebar-menu">
                             <li class="header">TRIGGER</li>
                             <!-- Optionally, you can add icons to the links -->
-                            <li ><a href="index.php"><i class="fa fa-link"></i> <span>Vendeur</span></a></li>
-                            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Recette vendeur</span></a></li>
-                            <li class="treeview">
-                                <a href="#"><i class="fa fa-link"></i> <span>Audit vendeur</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <li><a href="index.php"><i class="fa fa-users"></i> <span>Vendeur</span></a></li>
+                            <li class="active"><a href="recette_vendeur.php"><i class="fa fa-money"></i> <span>Recette vendeur</span></a></li>
+                            <li>
+                                <a href="audit_vendeur.php"><i class="fa fa-cog"></i> <span>Audit Vendeur</span></a>
                             </li>
+                            <li>
+                                <a href="recette_periode.php"><i class="fa fa-cogs"></i> <span>Divers</span></a>
+                            </li>
+                           
                         </ul><!-- /.sidebar-menu -->
                     </section>
                     <!-- /.sidebar -->
