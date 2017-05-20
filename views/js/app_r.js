@@ -49,7 +49,7 @@ function loadYearVm() {
     $.ajax({
         url: "../controllers/RecetteController.php",
         data: "action=charger_annee_vm",
-        type: "GET",
+        type: "POST",
         success: function (data) {
             $('#select_year_vm').html(data);
         }
@@ -61,7 +61,7 @@ function charger_vendeur() {
     $.ajax({
         url: "../controllers/RecetteController.php",
         data: "action=charger_vendeur",
-        type: "GET",
+        type: "POST",
         success: function (data) {
             $('#select_vendeur').html(data);
         }
@@ -75,7 +75,7 @@ function chargerListRecetteVendeur(year, month, vd_id) {
     $.ajax({
         url: "../controllers/RecetteController.php",
         data: "action=list_recette_vendeur_mois&rc_vm_year=" + year + "&rc_vm_mounth=" + month + "&vd_id=" + vd_id,
-        type: "GET",
+        type: "POST",
         success: function (data) {
             $('#table_recette_mois_vendeur_here').html(data);
             $('#example3').DataTable();

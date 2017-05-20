@@ -37,28 +37,28 @@ if (isset($_POST['action'])) {
             $table_content.='<tr><td>' . $_POST['month'] . ' - ' . $_POST['year'] . '</td><td>' . $l->getRc_m_montant() . '</td></tr>';
         }
         print $table_header . $table_content . $table_footer;
-    } elseif ($_GET['action'] == 'charger_annee_vm') {
+    } elseif ($_POST['action'] == 'charger_annee_vm') {
         $annees = RecetteVendeurMois::getYear($pdo);
         $select_content = '';
         foreach ($annees as $a) {
             $select_content .= '<option value="' . $a->getRc_vm_year() . '">' . $a->getRc_vm_year() . '</option>';
         }
         print $select_content;
-    } elseif ($_GET['action'] == 'charger_vendeur') {
+    } elseif ($_POST['action'] == 'charger_vendeur') {
         $annees = RecetteVendeurMois::getVendeur($pdo);
         $select_content = '';
         foreach ($annees as $a) {
             $select_content .= '<option value="' . $a->getVd_id() . '">' . Vendeur::getVendeurById($pdo,$a->getVd_id())->getVd_name() . '</option>';
         }
         print $select_content;
-    } elseif ($_GET['action'] == 'list_recette_vendeur_mois') {
-        if(isset($_GET['rc_vm_year']) and isset($_GET['rc_vm_mounth']) and isset($_GET['vd_id'])){
-            $list = RecetteVendeurMois::listRecetteVendeurMois($pdo,$_GET['rc_vm_year'],$_GET['rc_vm_mounth'],$_GET['vd_id'] );
+    } elseif ($_POST['action'] == 'list_recette_vendeur_mois') {
+        if(isset($_POST['rc_vm_year']) and isset($_POST['rc_vm_mounth']) and isset($_POST['vd_id'])){
+            $list = RecetteVendeurMois::listRecetteVendeurMois($pdo,$_POST['rc_vm_year'],$_POST['rc_vm_mounth'],$_POST['vd_id'] );
             $table_header = '<table id="example3" class="table table-bordered table-striped"><thead><tr><th>Nom Vendeur</th><th>Date</th><th>Montant</th></tr></thead><tbody>';
             $table_content = '';
             $table_footer = '</tbody></table>';
             foreach ($list as $l) {
-                $table_content.='<tr><td> ' . Vendeur::getVendeurById($pdo,$l->getVd_id())->getVd_name() . ' </td><td>' . $_GET['rc_vm_mounth'] . ' - ' . $_GET['rc_vm_year'] . '</td><td>' . $l->getRc_vm_montant() . '</td></tr>';
+                $table_content.='<tr><td> ' . Vendeur::getVendeurById($pdo,$l->getVd_id())->getVd_name() . ' </td><td>' . $_POST['rc_vm_mounth'] . ' - ' . $_POST['rc_vm_year'] . '</td><td>' . $l->getRc_vm_montant() . '</td></tr>';
             }
             print $table_header . $table_content . $table_footer;
             }
