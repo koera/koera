@@ -154,9 +154,9 @@ if ($_SESSION["username"] != null) {
                         <ul class="sidebar-menu">
                             <li class="header">TRIGGER</li>
                             <!-- Optionally, you can add icons to the links -->
-                            <li class="active"><a href="index.php"><i class="fa fa-users"></i> <span>Vendeur</span></a></li>
+                            <li><a href="index.php"><i class="fa fa-users"></i> <span>Vendeur</span></a></li>
                             <li><a href="recette_vendeur.php"><i class="fa fa-money"></i> <span>Recette vendeur</span></a></li>
-                            <li>
+                            <li class="active">
                                 <a href="audit_vendeur.php"><i class="fa fa-cog"></i> <span>Audit Vendeur</span></a>
                             </li>
                             <li>
@@ -174,11 +174,11 @@ if ($_SESSION["username"] != null) {
                     <section class="content-header">
                         <h1>
                             VENDEUR
-                            <small>Gérer vendeur</small>
+                            <small>Audit vendeur</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i> Acceuil</a></li>
-                            <li class="active">Vendeur</li>
+                            <li class="active">Audit</li>
                         </ol>
                     </section>
                     <div style="" class="margin" id="info-delete"></div>
@@ -187,52 +187,14 @@ if ($_SESSION["username"] != null) {
 
                         <!-- START ALERTS AND CALLOUTS -->
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="box box-default">
-                                    <div class="box-header with-border">
-                                        <i class="fa fa-plus"></i>
-                                        <h3 class="box-title" id="box-title-form">Nouveau</h3>
-                                    </div><!-- /.box-header -->
-                                    <div class="box-body">
-
-                                        <form role="form" method="POST"  id="form_vendeur" action="#" >
-                                            <div class="box-body">
-                                                <input type="hidden" id="vd_id"/>
-                                                <div class="form-group">
-                                                    <label>Nom vendeur (*) :</label>
-                                                    <input type="text" class="form-control" id="vd_name" name="vd_name"  placeholder="Nom vendeur" required="required">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Salaire (*) :</label>
-                                                    <input type="text" class="form-control" id="salaire"  name="salaire" placeholder="Salaire" required="required">
-                                                </div>
-
-                                                <div id="notif">
-                                                </div>
-                                            </div><!-- /.box-body -->
-
-                                            <div class="box-footer">
-                                                <span id="id_show_btn_cancel">
-                                                    <label class="primary" id="label_champs_obligatoires"><i>(*) : champs obligatoires</i></label>
-                                                </span>
-                                                <span id="id_show_btn_send">
-                                                    <button type="button" id="btn-send-form-vendeur" value="enregistrer" onclick="sendData()" class="btn btn-primary">Enregistrer</button>
-                                                </span>
-                                            </div>
-                                        </form>
-
-                                    </div><!-- /.box-body -->
-                                </div><!-- /.box -->
-                            </div><!-- /.col -->
-
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <div class="box box-default">
                                     <div class="box-header with-border">
                                         <i class="fa fa-list-alt"></i>
                                         <h3 class="box-title">Liste vendeur</h3>
                                     </div><!-- /.box-header -->
                                     <div class="box-body">
-                                        <div id="table_vendeur"></div>
+                                        <div id="table_vendeur_audit"></div>
                                     </div>
                                 </div><!-- /.box -->
                             </div><!-- /.col -->
