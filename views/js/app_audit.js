@@ -16,6 +16,7 @@ function loadListAudit() {
         type: 'POST',
         success: function (data) {
             $('#table_vendeur_audit').html(data);
+            $('#example1').DataTable();
         }
     });
 }
