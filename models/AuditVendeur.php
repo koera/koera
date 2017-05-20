@@ -75,6 +75,7 @@ class AuditVendeur {
             $i = 0;
             while ($table = $st->fetch(PDO::FETCH_NUM)) {
                 $listAudits[$i] = new AuditVendeur($table[0], $table[1], $table[2], $table[3], $table[4]);
+                $i++;
             }
             $st->closeCursor();
             return $listAudits;

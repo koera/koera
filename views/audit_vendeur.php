@@ -162,7 +162,7 @@ if ($_SESSION["username"] != null) {
                             <li>
                                 <a href="recette_periode.php"><i class="fa fa-cogs"></i> <span>Divers</span></a>
                             </li>
-                           
+
                         </ul><!-- /.sidebar-menu -->
                     </section>
                     <!-- /.sidebar -->
@@ -239,7 +239,7 @@ if ($_SESSION["username"] != null) {
             <!-- AdminLTE for demo purposes -->
             <script src="style/dist/js/demo.js"></script>
             <!-- page script -->
-            <script src="js/app_v.js"></script>
+            <script src="js/app_audit.js"></script>
         </body>
     </html>
     <?php

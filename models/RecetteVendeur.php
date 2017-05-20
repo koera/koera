@@ -76,4 +76,16 @@ class RecetteVendeur {
         }
     }
 
+    static function deleteRecette(PDO $pdo, $date, $vd_id) {
+        try {
+            $st = $pdo->prepare('DELETE FROM RECETTES_VENDEUR WHERE rc_date = ? AND vd_id = ?');
+            $st->execute(array($date, $vd_id));
+            $nb = $st->rowCount();
+            $st->closeCursor();
+            return $nb;
+        } catch (Exception $ex) {
+            print $ex->getMessage();
+        }
+    }
+
 }

@@ -181,6 +181,7 @@ if ($_SESSION["username"] != null) {
                         </ol>
                     </section>
                     <!-- Main content -->
+                    <div style="" class="margin" id="info-delete"></div>
                     <section class="content">
                         <!-- START ALERTS AND CALLOUTS -->
                         <div class="row">
