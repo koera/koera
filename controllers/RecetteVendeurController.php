@@ -26,7 +26,7 @@ if (isset($_POST['page'])) {
             <td>' . $l->getRc_date() . ' </td>
             <td>' . Vendeur::getVendeurById($pdo, $l->getVd_id())->getVd_name() . ' </td>
             <td>' . $l->getRc_montant() . ' </td>
-            <td> <a href="#" onclick="deleteRecette(\'' . $l->getRc_date() . '\',\'' . $l->getVd_id() . '\')"><i class="fa fa-trash"></i> </a> | <a href="#" > <i class="fa fa-edit"></i></a> </td>
+            <td> <a href="#" onclick="deleteRecette(\'' . $l->getRc_date() . '\',\'' . $l->getVd_id() . '\')"><i class="fa fa-trash"></i> </a> | <a href="#" onclick="editRecette(\'' . $l->getRc_date() . '\',\'' . $l->getRc_montant() . '\',\'' . $l->getVd_id() . '\')" > <i class="fa fa-edit"></i></a> </td>
             </tr>';
         }
         print $text_table_header . $text . $text_table_footer;
@@ -45,6 +45,30 @@ if (isset($_POST['page'])) {
                 print 'Suppression reussie';
             } else {
                 print 'Suppression ehoue';
+            }
+        }
+    } elseif ($_POST['page'] == 'editRecette') {
+        if (isset($_POST['rc_date']) and isset($_POST['rc_montant']) and isset($_POST['vd_id'])) {
+            $nb = RecetteVendeur::editRecette($pdo, $_POST['rc_date'], $_POST['rc_montant'], $_POST['vd_id']);
+            if ($nb > 0) {
+                print 'Modification reussie';
+            } else {
+                print 'Modification ehoue';
+            }
+        }
+        if (isset($_POST['action']) and isset($_POST['vd_id'])) {
+            if ($_POST['action'] == 'checkListUser') {
+                $text_select_begin = '<select class="form-control select2" style="width: 100%;" id="select_vendeur">';
+                $list_vendeur = Vendeur::listVendeur($pdo);
+                $text_select_option = '';
+                foreach ($list_vendeur as $vendeur) {
+                    if ($vendeur->getVd_id() == $_POST['vd_id'])
+                        $text_select_option .= '<option selected="selected" value="' . $vendeur->getVd_id() . '"> ' . $vendeur->getVd_name() . '</option>';
+                    else
+                        $text_select_option .= '<option value="' . $vendeur->getVd_id() . '"> ' . $vendeur->getVd_name() . '</option>';
+                }
+                $text_select_end = '</select>';
+                print $text_select_begin . $text_select_option . $text_select_end;
             }
         }
     }

@@ -5,16 +5,29 @@
  */
 
 function saveRecetteVendeur() {
+
     if ($('#rc_date').val() != '' && $('#rc_montant').val() != '' && $('#select_vendeur').val() != '') {
-        $.ajax({
-            url: "../controllers/RecetteVendeurController.php",
-            data: "rc_date=" + $('#rc_date').val() + "&rc_montant=" + $('#rc_montant').val() + "&vd_id=" + $('#select_vendeur').val(),
-            type: "POST",
-            success: function (success) {
-                $('#notif').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + success + '</div>');
-                getListRecetteVendeur();
-            }
-        });
+        if (($('#btn-send-form-recette').val() == 'enregistrer')) {
+            $.ajax({
+                url: "../controllers/RecetteVendeurController.php",
+                data: "rc_date=" + $('#rc_date').val() + "&rc_montant=" + $('#rc_montant').val() + "&vd_id=" + $('#select_vendeur').val(),
+                type: "POST",
+                success: function (success) {
+                    $('#notif').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + success + '</div>');
+                    getListRecetteVendeur();
+                }
+            });
+        } else {
+            $.ajax({
+                url: "../controllers/RecetteVendeurController.php",
+                data: "page=editRecette&rc_date=" + $('#rc_date').val() + "&rc_montant=" + $('#rc_montant').val() + "&vd_id=" + $('#select_vendeur').val(),
+                type: "POST",
+                success: function (success) {
+                    $('#notif').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + success + '</div>');
+                    getListRecetteVendeur();
+                }
+            });
+        }
     } else {
         if ($('#rc_date').val() == '') {
             $('#rc_date').css('border-color', 'red');
@@ -45,12 +58,11 @@ function chargerVendeur() {
         type: "POST",
         success: function (success) {
             $('#select_vendeur_here').html(success);
+            $('#select_vendeur').removeAttr('readonly');
         }
     });
 }
 function deleteRecette(rc_date, vd_id) {
-    console.log('date',rc_date);
-    console.log('vd_id',vd_id);
     if (confirm('Voulez vous vraiment supprimer ce recette?')) {
         $.ajax({
             url: "../controllers/RecetteVendeurController.php",
@@ -67,6 +79,45 @@ function deleteRecette(rc_date, vd_id) {
             }
         });
     }
+}
+function editRecette(date, montant, vd_id) {
+    $('#rc_date').css('border-color', 'gray');
+    $('#rc_date').attr('readonly', 'true');
+    $('#rc_date').val(date);
+
+    $('#rc_montant').css('border-color', 'gray');
+    $('#rc_montant').val(montant);
+
+    $('#notif').html('');
+
+    $('#box-title-form').html('Editer');
+    $('#btn-send-form-recette').val('modifier');
+    $('#btn-send-form-recette').html('Modifier');
+    $('#label_champs_obligatoires').css('display', 'none');
+    $('#id_show_btn_cancel').html('<button type="button" onclick="annulerOperation()" class="btn btn-primary">Annuler</button>')
+    $.ajax({
+        url: "../controllers/RecetteVendeurController.php",
+        data: "page=editRecette&action=checkListUser&vd_id=" + vd_id,
+        type: 'POST',
+        success: function (data) {
+            console.log(data);
+            $('#select_vendeur_here').html(data);
+            $('#select_vendeur').attr('readonly', true);
+        }
+    })
+}
+
+function annulerOperation() {
+    $('#rc_date').val('');
+    $('#rc_montant').val('');
+    $('#rc_date').removeAttr('readonly');
+    $('#box-title-form').html('Nouveau');
+    $('#id_show_btn_send').html('<button type="button" id="btn-send-form-recette" value="enregistrer" onclick="saveRecetteVendeur()" class="btn btn-primary">Enregistrer</button>');
+    $('#id_show_btn_cancel').html('<label class="primary" id="label_champs_obligatoires"><i>(*) : champs obligatoires</i></label>');
+    $('#rc_date').css('border-color', 'gray');
+    $('#rc_montant').css('border-color', 'gray');
+    $('#notif').html('');
+    chargerVendeur();
 }
 $(function () {
     $("#rc_date").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});

@@ -189,7 +189,7 @@ if ($_SESSION["username"] != null) {
                                 <div class="box box-default">
                                     <div class="box-header with-border">
                                         <i class="fa fa-plus"></i>
-                                        <h3 class="box-title">Nouveau</h3>
+                                        <h3 class="box-title" id="box-title-form">Nouveau</h3>
                                     </div><!-- /.box-header -->
                                     <div class="box-body">
 
@@ -218,8 +218,12 @@ if ($_SESSION["username"] != null) {
                                             </div><!-- /.box-body -->
 
                                             <div class="box-footer">
-                                                <label class="primary" ><i>(*) : champs obligatoires</i></label>
-                                                <button type="button" onclick="saveRecetteVendeur()" class="btn btn-primary">Enregistrer</button>
+                                                <span id="id_show_btn_cancel">
+                                                    <label class="primary" id="label_champs_obligatoires"><i>(*) : champs obligatoires</i></label>
+                                                </span>
+                                                <span id="id_show_btn_send">
+                                                    <button type="button" id="btn-send-form-recette" value="enregistrer" onclick="saveRecetteVendeur()" class="btn btn-primary">Enregistrer</button>
+                                                </span>
                                             </div>
                                         </form>
 
